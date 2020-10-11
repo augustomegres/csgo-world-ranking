@@ -1,9 +1,6 @@
 import HLTV from 'hltv';
 import React from 'react';
 import './App.css';
-
-import FastAverageColor from 'fast-average-color';
-
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -41,8 +38,9 @@ export default class App extends React.Component {
     return (
       <div className="team-list">
         {this.state.teamRanking.map((item, index) => {
-          const url = `https://static.hltv.org/images/team/logo/${item.team.id}`;
+          //const url = `https://static.hltv.org/images/team/logo/${item.team.id}`;
 
+          /**
           const fac = new FastAverageColor();
 
           // From not loaded image (HTMLImageElement)
@@ -63,17 +61,20 @@ export default class App extends React.Component {
             .catch(function (e) {
               console.error(e);
             });
+             */
 
           return (
             <div className="team">
               <div className="logo-change">
                 <img
                   className="logo"
+                  alt="team"
                   src={`https://static.hltv.org/images/team/logo/${item.team.id}`}
                 ></img>
 
                 <img
                   className="change"
+                  alt="arrow"
                   src={`/static/${this.getChangeLogo(item.change)}`}
                 ></img>
                 <h3 className="change-ratio">{item.change}</h3>
